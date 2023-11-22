@@ -98,7 +98,7 @@ async def startupmessage():
         if BOTLOG:
             Config.CATUBLOGO = await l313l.tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://telegra.ph/file/45a08298c226a89563e4d.mp4",
+                "https://telegra.ph/file/419922238c39cc169c434.jpg",
                 caption="**‏᯽︙ بــوت رنثون يـعـمـل بـنـجـاح ✓ \n᯽︙ أرسل `.الاوامر`لرؤية اوامر السورس \n  ᯽︙ لأستعمال بوت الأختراق عبر كود التيرمكس أرسل`.هاك`**",
                 buttons=[(Button.url("سورس رنثون", "https://t.me/xLxLxLrr3"),)],
             )
@@ -199,7 +199,7 @@ async def add_bot_to_logger_group(chat_id):
         except Exception as e:
             LOGS.error(str(e))
 #by @xLxLxLrr3 بس اشوفك خامطه للكود اهينك وافضحك
-SedUb = {"@xLxLxLrr3", "@sedthon_help"}
+SedUb = {"@xLxLxLrr3", "@xLxLxLrr7"}
 async def saves():
    for lMl10l in SedUb:
         try:
