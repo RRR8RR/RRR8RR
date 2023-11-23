@@ -244,7 +244,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 async def upstream(event):
     "To check if the bot is up to date and update if specified"
     conf = event.pattern_match.group(1).strip()
-    event = await edit_or_reply(event, "**᯽︙ يـتـم البـحـث عـن تـحديثـات سـورس سيدثون انـتـظـر**")
+    event = await edit_or_reply(event, "**᯽︙ يـتـم البـحـث عـن تـحديثـات سـورس رنثون انـتـظـر**")
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     
