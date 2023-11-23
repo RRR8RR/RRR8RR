@@ -3,7 +3,7 @@ from telethon import functions
 import subprocess
 from SedUb.helpers.functions.functions import translate
 from datetime import datetime
-from BiLaL import get_string
+from Alsh import get_string
 
 
 
