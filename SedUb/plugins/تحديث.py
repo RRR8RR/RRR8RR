@@ -36,7 +36,7 @@ heroku_api = "https://api.heroku.com"
 UPSTREAM_REPO_BRANCH = Config.UPSTREAM_REPO_BRANCH
 
 REPO_REMOTE_NAME = "temponame"
-IFFUCI_ACTIVE_BRANCH_NAME = "HuRe"
+IFFUCI_ACTIVE_BRANCH_NAME = "SedUb"
 NO_HEROKU_APP_CFGD = "no heroku application found, but a key given? 😕 "
 HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/HuRe"
 RESTARTING_APP = "re-starting heroku application"
