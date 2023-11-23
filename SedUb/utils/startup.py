@@ -306,7 +306,7 @@ async def verifyLoggerGroup():
             )
     else:
         descript = "- عزيزي المستخدم هذه هي مجموعه الاشعارات يرجى عدم حذفها  - @xLxLxLrr3"
-        photobt = await l313l.upload_file(file="l313l/razan/resources/start/sedthon.jpeg")
+        photobt = await l313l.upload_file(file="l313l/razan/resources/start/sedthon.jpg")
         botlog_group_id = await aljoker_the_best(l313l, "مجموعة أشعارات رنثون")
         if botlog_group_id:
             addgvar("PRIVATE_GROUP_BOT_API_ID", botlog_group_id)
@@ -320,7 +320,7 @@ async def verifyLoggerGroup():
         flag = True
     if PM_LOGGER_GROUP_ID == -100:
         descript = "᯽︙ وظيفه الكروب يحفظ رسائل الخاص اذا ما تريد الامر احذف الكروب نهائي \n  - @xLxLxLrr3"
-        photobt = await l313l.upload_file(file="l313l/razan/resources/start/sed.jpeg")
+        photobt = await l313l.upload_file(file="l313l/razan/resources/start/sed.jpg")
         pm_logger_group_id = await aljoker_the_best(l313l, "مجموعة التخزين")
         if pm_logger_group_id:
             addgvar("PM_LOGGER_GROUP_ID", pm_logger_group_id)
