@@ -47,7 +47,7 @@ async def amireallyalive(event):
     me = await l313l.get_me()
     first_name = me.first_name
     mention = first_name
-    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**父[ 𝗥𝘂𝗻𝘁𝗵𝗼𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁   ✓ ](t.me/veevvw)父**"
+    ALIVE_TEXT = gvarstatus("ALIVE_TEXT") or "**父[ 𝗥𝘂𝗻𝘁𝗵𝗼𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁   ✓ ](t.me/xLxLxLrr3)父**"
     HuRe_IMG = gvarstatus("ALIVE_PIC") or Config.A_PIC
     l313l_caption = gvarstatus("ALIVE_TEMPLATE") or temp
     caption = l313l_caption.format(
