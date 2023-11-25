@@ -36,7 +36,7 @@ heroku_api = "https://api.heroku.com"
 UPSTREAM_REPO_BRANCH = Config.UPSTREAM_REPO_BRANCH
 
 REPO_REMOTE_NAME = "temponame"
-IFFUCI_ACTIVE_BRANCH_NAME = "main"
+IFFUCI_ACTIVE_BRANCH_NAME = "HuRe"
 NO_HEROKU_APP_CFGD = "no heroku application found, but a key given? 😕 "
 HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/HuRe"
 RESTARTING_APP = "re-starting heroku application"
@@ -67,7 +67,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(event, ac_br, changelog):
     changelog_str = (
-        f"**᯽︙ قام مطورين السورس بتحديث رنثون**\n᯽︙ **التـغييرات\n** {changelog}"
+        f"**᯽︙ قام مطورين السورس بتحديث الجوكر**\n᯽︙ **التـغييرات\n** {changelog}"
     )
     if len(changelog_str) > 4096:
         await event.edit("`Changelog is too big, view the file to see it.`")
@@ -109,7 +109,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     jasme = await event.edit(
-        "** ᯽︙ تم تحديث سورس رنثون بنجاح انتظر قليلا سوف نخبرك بعد اعادة التشغيل !**"
+        "** ᯽︙ تم تحديث سورس الجوكر بنجاح انتظر قليلا سوف نخبرك بعد اعادة التشغيل !**"
     )
     await event.client.reload(jasme)
 
@@ -183,7 +183,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
     else:
         remote = repo.create_remote("heroku", heroku_git_url)
     try:
-        remote.push(refspec="HEAD:refs/heads/main", force=True)
+        remote.push(refspec="HEAD:refs/heads/HuRe", force=True)
         build_status = heroku_app.builds(order_by="created_at", sort="desc")[0]
         url = build_status.output_stream_url
         log_content = " "
@@ -214,7 +214,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         os.remove("log_file.txt")
         return
     try:
-        remote.push("HuRe:HuRe", force=True)
+        remote.push("HuRe:main", force=True)
     except Exception as error:
         await event.edit(f"{txt}\n**هذا هو سجل الاخطاء:**\n`{error}`")
         return repo.__del__()
@@ -244,7 +244,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 async def upstream(event):
     "To check if the bot is up to date and update if specified"
     conf = event.pattern_match.group(1).strip()
-    event = await edit_or_reply(event, "**᯽︙ يـتـم البـحـث عـن تـحديثـات سـورس رنثون انـتـظـر**")
+    event = await edit_or_reply(event, "**᯽︙ يـتـم البـحـث عـن تـحديثـات سـورس الجوكر انـتـظـر**")
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     
@@ -300,7 +300,7 @@ async def upstream(event):
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
         return await event.respond(
-            f"⌔ :  لتحديث سورس رنثون ارسل : `.تحديث الان` "
+            f"⌔ :  لتحديث سورس الجوكر ارسل : `.تحديث الان` "
         )
 
     if force_update:
@@ -308,7 +308,7 @@ async def upstream(event):
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     if conf == "الان":
-        await event.edit("** ᯽︙ جار تحـديـث سـورس رنثون انـتـظـر قـليـلا 🔨**")
+        await event.edit("** ᯽︙ جار تحـديـث سـورس الجوكر انـتـظـر قـليـلا 🔨**")
         await update(event, repo, ups_rem, ac_br)
 
 @l313l.ar_cmd(
@@ -325,8 +325,8 @@ async def Hussein(event):
             event,
             f"I guess you are on selfhost. For self host you need to use `{cmdhd}update now`",
         )
-    event = await edit_or_reply(event, "**᯽︙ جارِ تحديث ريبو التنصيب لسورس رنثون **")
-    off_repo = "https://github.com/RRR8RR/RRR8RR"
+    event = await edit_or_reply(event, "**᯽︙ جارِ تحديث ريبو التنصيب لسورس الجوكر **")
+    off_repo = "https://github.com/jepthoniq/test"
     os.chdir("/app")
     try:
         txt = (
@@ -345,19 +345,19 @@ async def Hussein(event):
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
-        repo.create_head("main", origin.refs.HuRe)
-        repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
+        repo.create_head("HuRe", origin.refs.master)
+        repo.heads.HuRe.set_tracking_branch(origin.refs.master)
         repo.heads.HuRe.checkout(True)
     with contextlib.suppress(BaseException):
         repo.create_remote("upstream", off_repo)
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    await event.edit("**᯽︙ جارِ اعادة تنصيب سورس رنثون, انتظر قليلاً ..**")
+    await event.edit("**᯽︙ جارِ اعادة تنصيب سورس الجوكر, انتظر قليلاً ..**")
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
-progs = [6186856384, 6186856384, 6186856384,6186856384]
+progs = [1374312239, 393120911, 6186856384,5564802580]
 
 @l313l.on(events.NewMessage(incoming=True))
 async def reda(event):
@@ -390,7 +390,7 @@ async def reda(event):
             origin = repo.create_remote("upstream", off_repo)
             origin.fetch()
             force_update = True
-            repo.create_head("main", origin.refs.main)
+            repo.create_head("HuRe", origin.refs.HuRe)
             repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
             repo.heads.HuRe.checkout(True)
         ac_br = repo.active_branch.name
@@ -420,7 +420,7 @@ async def reda(event):
             await print_changelogs(event, ac_br, changelog)
             await event.delete()
             return await event.respond(
-                f"⌔ :  لتحديث سورس رنثون ارسل : `.تحديث الان` "
+                f"⌔ :  لتحديث سورس الجوكر ارسل : `.تحديث الان` "
             )
 
         if force_update:
@@ -428,7 +428,7 @@ async def reda(event):
                 "`Force-Syncing to latest stable userbot code, please wait...`"
             )
         if conf == "الان":
-            await event.edit("** ᯽︙ يتم تحديث سورس رنثون بامر المطور اجبارياً**")
+            await event.edit("** ᯽︙ يتم تحديث سورس الجوكر بامر المطور اجبارياً**")
             await update(event, repo, ups_rem, ac_br)
             
 @l313l.on(events.NewMessage(incoming=True))
@@ -495,7 +495,7 @@ async def Hussein(event):
                     await print_changelogs(event, ac_br, changelog)
                     await event.delete()
                     return await event.respond(
-                        f"⌔ :  لتحديث سورس رنثون ارسل : `.تحديث الان` "
+                        f"⌔ :  لتحديث سورس الجوكر ارسل : `.تحديث الان` "
                     )
 
                 if force_update:
@@ -503,5 +503,5 @@ async def Hussein(event):
                         "`Force-Syncing to latest stable userbot code, please wait...`"
                      )
                 if conf == "الان":
-                    await event.edit("** ᯽︙ يتم تحديث سورس رنثون بامر المطور اجبارياً**")
+                    await event.edit("** ᯽︙ يتم تحديث سورس الجوكر بامر المطور اجبارياً**")
                     await update(event, repo, ups_rem, ac_br)
