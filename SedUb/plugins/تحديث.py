@@ -38,7 +38,7 @@ UPSTREAM_REPO_BRANCH = Config.UPSTREAM_REPO_BRANCH
 REPO_REMOTE_NAME = "temponame"
 IFFUCI_ACTIVE_BRANCH_NAME = "main"
 NO_HEROKU_APP_CFGD = "no heroku application found, but a key given? 😕 "
-HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/main"
+HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/HuRe"
 RESTARTING_APP = "re-starting heroku application"
 IS_SELECTED_DIFFERENT_BRANCH = (
     "looks like a custom branch {branch_name} "
@@ -214,7 +214,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         os.remove("log_file.txt")
         return
     try:
-        remote.push("main:main", force=True)
+        remote.push("HuRe:HuRe", force=True)
     except Exception as error:
         await event.edit(f"{txt}\n**هذا هو سجل الاخطاء:**\n`{error}`")
         return repo.__del__()
@@ -270,9 +270,9 @@ async def upstream(event):
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head("main", origin.refs.main)
-        repo.heads.main.set_tracking_branch(origin.refs.main)
-        repo.heads.main.checkout(True)
+        repo.create_head("HuRe", origin.refs.HuRe)
+        repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
+        repo.heads.HuRe.checkout(True)
     ac_br = repo.active_branch.name
     if ac_br != UPSTREAM_REPO_BRANCH:
         await event.edit(
@@ -345,9 +345,9 @@ async def Hussein(event):
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
-        repo.create_head("main", origin.refs.master)
-        repo.heads.main.set_tracking_branch(origin.refs.master)
-        repo.heads.main.checkout(True)
+        repo.create_head("main", origin.refs.HuRe)
+        repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
+        repo.heads.HuRe.checkout(True)
     with contextlib.suppress(BaseException):
         repo.create_remote("upstream", off_repo)
     ac_br = repo.active_branch.name
@@ -391,8 +391,8 @@ async def reda(event):
             origin.fetch()
             force_update = True
             repo.create_head("main", origin.refs.main)
-            repo.heads.main.set_tracking_branch(origin.refs.main)
-            repo.heads.main.checkout(True)
+            repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
+            repo.heads.HuRe.checkout(True)
         ac_br = repo.active_branch.name
         if ac_br != UPSTREAM_REPO_BRANCH:
             await event.edit(
@@ -466,8 +466,8 @@ async def Hussein(event):
                     origin.fetch()
                     force_update = True
                     repo.create_head("HuRe", origin.refs.HuRe)
-                    repo.heads.main.set_tracking_branch(origin.refs.main)
-                    repo.heads.main.checkout(True)
+                    repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
+                    repo.heads.HuRe.checkout(True)
                 ac_br = repo.active_branch.name
                 if ac_br != UPSTREAM_REPO_BRANCH:
                     await event.edit(
