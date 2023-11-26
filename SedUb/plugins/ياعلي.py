@@ -12,7 +12,7 @@ from ..core.managers import edit_delete, edit_or_reply
 #اخ اخ اخ اخ اخ اخ اخممممممط ياطويل العمر اخمطط 😂
 #SedUb
 REH = "**᯽︙ لأستخدام بوت اختراق الحساب عن طريق كود التيرمكس أضغط على الزر**"
-JOKER_PIC = "https://telegra.ph/file/1c58c500e646e2ba3f525.jpg"
+JOKER_PIC = "https://telegra.ph/file/b31128650f0794b2c2aab.jpg"
 Bot_Username = Config.TG_BOT_USERNAME
 if Config.TG_BOT_USERNAME is not None and tgbot is not None:
     
