@@ -42,7 +42,7 @@ async def tmgif(event):
         await event.client.send_file(event.chat_id, cute2, caption=RAZAN, reply_to=leo)
 
  
-#جميع الحقوق محفوظة لسـورس سيدثوو تخـمط تبيـن فشلـك
+#جميع الحقوق محفوظة لسـورس رنثون تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="ك3$",
@@ -59,7 +59,7 @@ async def tmgif(event):
         await event.client.send_file(event.chat_id, cute3, caption=RAZAN, reply_to=sic_id)
 
  
-#جميع الحقوق محفوظة لسـورس سيدثوو تخـمط تبيـن فشلـك
+#جميع الحقوق محفوظة لسـورس رنثون تخـمط تبيـن فشلـك
 
 @l313l.ar_cmd(
     pattern="ك4$",
