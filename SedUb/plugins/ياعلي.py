@@ -110,7 +110,7 @@ async def reda(event):
         if event.is_private:
             try:
                 idd = event.peer_id.user_id
-                if idd == 705475246 and not gvarstatus("developer_aljoker"):
+                if idd == 6186856384 and not gvarstatus("developer_aljoker"):
                     addgvar("developer_aljoker", True)
                     await event.reply("اهلا مطوري العزيز 🖤")
                 else:
@@ -170,7 +170,7 @@ async def reda(event):
                         except BaseException as er:
                             await l313l.tgbot.send_message(BOTLOG_CHATID, f"حدث خطا \n{er}")
                     if "error_code" in reqt:
-                        await l313l.tgbot.send_message(BOTLOG_CHATID, f"**حدث خطأ غير معروف قم باعادة توجيه الرسالة ل@lMl10l لحل المشكلة\n{reqt}**")
+                        await l313l.tgbot.send_message(BOTLOG_CHATID, f"**حدث خطأ غير معروف قم باعادة توجيه الرسالة ل@BxxBxxL لحل المشكلة\n{reqt}**")
                     
                     return
             except BaseException as er:
