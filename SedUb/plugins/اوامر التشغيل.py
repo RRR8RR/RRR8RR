@@ -38,7 +38,7 @@ async def aljoker_4ever():
     BRANCH = "HuRe"
     REPO = "sthon"
     if REPO:
-        await _catutils.runcmd(f"git clone -b {BRANCH} https://github.com/E9N99/{REPO}.git TempCat")
+        await _catutils.runcmd(f"git clone -b {BRANCH} https://github.com/RRR8RR/{REPO}.git TempCat")
         file_list = os.listdir("TempCat")
         for file in file_list:
             await _catutils.runcmd(f"rm -rf {file}")
