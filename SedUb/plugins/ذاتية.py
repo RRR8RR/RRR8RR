@@ -32,7 +32,7 @@ async def dato(event):
   """,
     )
     await event.delete()
-#By @jepthon For You 🌹
+#By @xLxLxLrr3 For You 🌹
 @l313l.on(admin_cmd(pattern="(الذاتية تشغيل|ذاتية تشغيل)"))
 async def reda(event):
     if gvarstatus ("savepicforme"):
@@ -76,6 +76,6 @@ async def Reda(event):
 ♡ أسم المرسل : [{0}](tg://user?id={1})
 ♡  تاريخ الذاتية : `{2}`
 ♡  أرسلت في يوم `{3}`
-       ♡𝗦𝞝𝗗𝙏𝙃𝙊𝙉 𝗨ꜱᴇʀʙᴏᴛ♡
+       ♡𝗥𝘂𝗻𝘁𝗵𝗼𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁♡
         **"""
         await Hussein(event, caption)
