@@ -618,7 +618,7 @@ async def on_plug_in_callback_query_handler(event):
     try:
         PM_WARNS = sql.get_collection("pmspam").json
     except AttributeError:
-        PM_WARNS = {}  # ترجمه وكتابة فريق سيدثون
+        PM_WARNS = {}  # ترجمه وكتابة فريق رنثون
     if str(event.query.user_id) in PM_WARNS:
         del PM_WARNS[str(event.query.user_id)]
         sql.del_collection("pmwarns")
