@@ -627,7 +627,7 @@ async def on_plug_in_callback_query_handler(event):
     await event.edit(text)
 
 
-@l313l.ar_cmd(pattern="الحماية (تشغيل|تعطيل)$")  # ترجمه وكتابة فريق سيدثون
+@l313l.ar_cmd(pattern="الحماية (تشغيل|تعطيل)$")  # ترجمه وكتابة فريق رنثون 
 async def pmpermit_on(event):
     input_str = event.pattern_match.group(1)
     if input_str == "تشغيل":
@@ -643,11 +643,11 @@ async def pmpermit_on(event):
         await edit_delete(event, "- امر الحمايه بالفعل مُعطل لحسابك 🌿")
 
 
-@l313l.ar_cmd(pattern="الحماية (تشغيل|تعطيل)$")  # ترجمه وكتابة فريق سيدثون
+@l313l.ar_cmd(pattern="الحماية (تشغيل|تعطيل)$")  # ترجمه وكتابة فريق رنثون
 async def pmpermit_on(event):
     input_str = event.pattern_match.group(1)
     if input_str == "تعطيل":
-        if gvarstatus("pmmenu") is None:  # ترجمه وكتابة فريق سيدثوو
+        if gvarstatus("pmmenu") is None:  # ترجمه وكتابة فريق رنثون
             addgvar("pmmenu", "false")
             await edit_delete(
                 event,
