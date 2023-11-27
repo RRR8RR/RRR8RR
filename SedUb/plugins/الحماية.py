@@ -20,7 +20,7 @@ from . import mention
 
 LOGS = logging.getLogger(__name__)
 cmdhd = Config.COMMAND_HAND_LER
-# ترجمه وكتابة فريق سيدثون
+# ترجمه وكتابة فريق رنثون
 
 
 async def do_pm_permit_action(event, chat):  # sourcery no-metrics
