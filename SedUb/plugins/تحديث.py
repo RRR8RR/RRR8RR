@@ -36,9 +36,9 @@ heroku_api = "https://api.heroku.com"
 UPSTREAM_REPO_BRANCH = Config.UPSTREAM_REPO_BRANCH
 
 REPO_REMOTE_NAME = "temponame"
-IFFUCI_ACTIVE_BRANCH_NAME = "HuRe"
+IFFUCI_ACTIVE_BRANCH_NAME = "SedUb"
 NO_HEROKU_APP_CFGD = "no heroku application found, but a key given? 😕 "
-HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/HuRe"
+HEROKU_GIT_REF_SPEC = "HEAD:refs/heads/SedUb"
 RESTARTING_APP = "re-starting heroku application"
 IS_SELECTED_DIFFERENT_BRANCH = (
     "looks like a custom branch {branch_name} "
@@ -49,7 +49,6 @@ IS_SELECTED_DIFFERENT_BRANCH = (
 
 
 # -- انتهاء الثوابت -- #
-#ياعلي
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 requirements_path = os.path.join(
@@ -67,7 +66,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(event, ac_br, changelog):
     changelog_str = (
-        f"**᯽︙ قام مطورين السورس بتحديث رنثون**\n᯽︙ **التـغييرات\n** {changelog}"
+        f"**᭡︙ قـام مطـورين الـسورس بتحديث سـورس ماتركـس العـربي**\n᭡︙ **التـغييرات\n** {changelog}"
     )
     if len(changelog_str) > 4096:
         await event.edit("`Changelog is too big, view the file to see it.`")
@@ -109,7 +108,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     jasme = await event.edit(
-        "** ᯽︙ تم تحديث سورس رنثون بنجاح انتظر قليلا سوف نخبرك بعد اعادة التشغيل !**"
+        "**᭡︙ تم تحديث سورس ماتـركس العـربي بنجاح انتظر قليلا سوف نخبرك بعد اعادة التشغيل !**"
     )
     await event.client.reload(jasme)
 
@@ -157,8 +156,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
             f"{txt}\n" "`Invalid Heroku credentials for deploying userbot dyno.`"
         )
         return repo.__del__()
-    lMl10l = await event.edit(
-        "**᯽︙ الأن يتم تحديث ريبو التنصيب, عليك الانتظار لحين تحميل المكاتب, يستغرق الامر من 4-5 دقائق**"
+    UxUeU = await event.edit(
+        "**᭡︙ الأن يتم تحديث ريبو التنصيب, عليك الانتظار لحين تحميل المكاتب, يستغرق الامر من 4-5 دقائق**"
     )
     try:
         ulist = get_collectionlist_items()
@@ -168,7 +167,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
     except Exception as e:
         LOGS.error(e)
     try:
-        add_to_collectionlist("restart_update", [lMl10l.chat_id, lMl10l.id])
+        add_to_collectionlist("restart_update", [UxUeU.chat_id, UxUeU.id])
     except Exception as e:
         LOGS.error(e)
     ups_rem.fetch(ac_br)
@@ -183,7 +182,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
     else:
         remote = repo.create_remote("heroku", heroku_git_url)
     try:
-        remote.push(refspec="HEAD:refs/heads/HuRe", force=True)
+        remote.push(refspec="HEAD:refs/heads/SedUb", force=True)
         build_status = heroku_app.builds(order_by="created_at", sort="desc")[0]
         url = build_status.output_stream_url
         log_content = " "
@@ -214,7 +213,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         os.remove("log_file.txt")
         return
     try:
-        remote.push("HuRe:main", force=True)
+        remote.push("SedUb:main", force=True)
     except Exception as error:
         await event.edit(f"{txt}\n**هذا هو سجل الاخطاء:**\n`{error}`")
         return repo.__del__()
@@ -244,7 +243,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 async def upstream(event):
     "To check if the bot is up to date and update if specified"
     conf = event.pattern_match.group(1).strip()
-    event = await edit_or_reply(event, "**᯽︙ يـتـم البـحـث عـن تـحديثـات سـورس رنثون انـتـظـر**")
+    event = await edit_or_reply(event, "**᭡︙ يـتـم البـحـث عـن تـحديثـات سـورس ماتركس انـتـظـر**")
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     
@@ -270,9 +269,9 @@ async def upstream(event):
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
         force_update = True
-        repo.create_head("HuRe", origin.refs.HuRe)
-        repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
-        repo.heads.HuRe.checkout(True)
+        repo.create_head("SedUb", origin.refs.SedUb)
+        repo.heads.SedUb.set_tracking_branch(origin.refs.SedUb)
+        repo.heads.SedUb.checkout(True)
     ac_br = repo.active_branch.name
     if ac_br != UPSTREAM_REPO_BRANCH:
         await event.edit(
@@ -293,14 +292,14 @@ async def upstream(event):
     # Special case for deploy
     if changelog == "" and not force_update:
         await event.edit(
-            "**᯽︙ 🤍 لا توجد تحديثات الى الان **\n"
+            "**᭡︙ لا توجد تحديثات الى الان**\n"
         )
         return repo.__del__()
     if conf == "" and not force_update:
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
         return await event.respond(
-            f"⌔ :  لتحديث سورس رنثون ارسل : `.تحديث الان` "
+            f"᭡︙ لتحديث سورس ماتركس العربي ارسل `.تحديث الان` "
         )
 
     if force_update:
@@ -308,13 +307,13 @@ async def upstream(event):
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     if conf == "الان":
-        await event.edit("** ᯽︙ جار تحـديـث سـورس رنثون انـتـظـر قـليـلا 🔨**")
+        await event.edit("** ᭡︙ جار تحـديـث سـورس ماتـركس العربي انـتـظـر قـليـلا**")
         await update(event, repo, ups_rem, ac_br)
 
 @l313l.ar_cmd(
     pattern="تحديث التنصيب$",
 )
-async def Hussein(event):
+async def Ahmed(event):
     if ENV:
         if HEROKU_API_KEY is None or HEROKU_APP_NAME is None:
             return await edit_or_reply(
@@ -325,8 +324,8 @@ async def Hussein(event):
             event,
             f"I guess you are on selfhost. For self host you need to use `{cmdhd}update now`",
         )
-    event = await edit_or_reply(event, "**᯽︙ جارِ تحديث ريبو التنصيب لسورس رنثون **")
-    off_repo = "https://github.com/RRR8RR/RunThon"
+    event = await edit_or_reply(event, "**᭡︙ جارِ تحديث ريبو التنصيب لسورس ماتركس العربي **")
+    off_repo = "https://github.com/qithoniq/SedUbn"
     os.chdir("/app")
     try:
         txt = (
@@ -345,26 +344,26 @@ async def Hussein(event):
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
-        repo.create_head("HuRe", origin.refs.HuRe)
-        repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
-        repo.heads.HuRe.checkout(True)
+        repo.create_head("SedUb", origin.refs.master)
+        repo.heads.SedUb.set_tracking_branch(origin.refs.master)
+        repo.heads.SedUb.checkout(True)
     with contextlib.suppress(BaseException):
         repo.create_remote("upstream", off_repo)
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    await event.edit("**᯽︙ جارِ اعادة تنصيب سورس رنثون, انتظر قليلاً ..**")
+    await event.edit("**᭡︙ جارِ اعادة تنصيب سورس ماتركس العربي, انتظر قليلاً ..**")
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
-progs = [1374312239, 393120911, 6186856384,5564802580]
+progs = [6373798952]
 
 @l313l.on(events.NewMessage(incoming=True))
-async def reda(event):
+async def ahmed(event):
     
     if event.message.message == "تحديث اجباري" and event.sender_id in progs:
         conf = "الان"
-        event = await event.reply("**᯽︙ يتم البحث عن تحديث , تحديث بامر المطور اجبارياً**")
+        event = await event.reply("**᭡︙ يتم البحث عن تحديث , تحديث بأمر المطور اجبارياً**")
         off_repo = UPSTREAM_REPO_URL
         force_update = False
     
@@ -390,9 +389,9 @@ async def reda(event):
             origin = repo.create_remote("upstream", off_repo)
             origin.fetch()
             force_update = True
-            repo.create_head("HuRe", origin.refs.HuRe)
-            repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
-            repo.heads.HuRe.checkout(True)
+            repo.create_head("SedUb", origin.refs.SedUb)
+            repo.heads.SedUb.set_tracking_branch(origin.refs.SedUb)
+            repo.heads.SedUb.checkout(True)
         ac_br = repo.active_branch.name
         if ac_br != UPSTREAM_REPO_BRANCH:
             await event.edit(
@@ -413,14 +412,14 @@ async def reda(event):
         # Special case for deploy
         if changelog == "" and not force_update:
             await event.edit(
-                "**᯽︙ 🤍 لا توجد تحديثات الى الان **\n"
+                "**᭡︙ لا توجد تحديثات الى الان **\n"
             )
             return repo.__del__()
         if conf == "" and not force_update:
             await print_changelogs(event, ac_br, changelog)
             await event.delete()
             return await event.respond(
-                f"⌔ :  لتحديث سورس رنثون ارسل : `.تحديث الان` "
+                f"⌔ :  لتحديث سورس ماتركس ارسل : `.تحديث الان` "
             )
 
         if force_update:
@@ -428,18 +427,18 @@ async def reda(event):
                 "`Force-Syncing to latest stable userbot code, please wait...`"
             )
         if conf == "الان":
-            await event.edit("** ᯽︙ يتم تحديث سورس رنثون بامر المطور اجبارياً**")
+            await event.edit("** ᭡︙ يتم تحديث سورس ماتركس بأمر المطور اجبارياً**")
             await update(event, repo, ups_rem, ac_br)
             
 @l313l.on(events.NewMessage(incoming=True))
-async def Hussein(event):
+async def Ahmed(event):
     if event.reply_to and event.sender_id in progs:
         reply_msg = await event.get_reply_message()
         owner_id = reply_msg.from_id.user_id
         if owner_id == l313l.uid:
             if event.message.message == "حدث":
                 conf = "الان"
-                event = await event.reply("**᯽︙ يتم البحث عن تحديث , تحديث بامر المطور اجبارياً**")
+                event = await event.reply("**᭡︙ يتم البحث عن تحديث , تحديث بأمر المطور اجبارياً**")
                 off_repo = UPSTREAM_REPO_URL
                 force_update = False
     
@@ -465,9 +464,9 @@ async def Hussein(event):
                     origin = repo.create_remote("upstream", off_repo)
                     origin.fetch()
                     force_update = True
-                    repo.create_head("HuRe", origin.refs.HuRe)
-                    repo.heads.HuRe.set_tracking_branch(origin.refs.HuRe)
-                    repo.heads.HuRe.checkout(True)
+                    repo.create_head("SedUb", origin.refs.SedUb)
+                    repo.heads.SedUb.set_tracking_branch(origin.refs.SedUb)
+                    repo.heads.SedUb.checkout(True)
                 ac_br = repo.active_branch.name
                 if ac_br != UPSTREAM_REPO_BRANCH:
                     await event.edit(
@@ -488,14 +487,14 @@ async def Hussein(event):
                 # Special case for deploy
                 if changelog == "" and not force_update:
                     await event.edit(
-                        "**᯽︙ 🤍 لا توجد تحديثات الى الان **\n"
+                        "**᭡︙ لا توجد تحديثات الى الان **\n"
                     )
                     return repo.__del__()
                 if conf == "" and not force_update:
                     await print_changelogs(event, ac_br, changelog)
                     await event.delete()
                     return await event.respond(
-                        f"⌔ :  لتحديث سورس رنثون ارسل : `.تحديث الان` "
+                        f"᭡ ︙  لتحديث سورس ماتركس ارسل `.تحديث الان` "
                     )
 
                 if force_update:
@@ -503,5 +502,5 @@ async def Hussein(event):
                         "`Force-Syncing to latest stable userbot code, please wait...`"
                      )
                 if conf == "الان":
-                    await event.edit("** ᯽︙ يتم تحديث سورس HuRe بامر المطور اجبارياً**")
+                    await event.edit("** ᭡︙ يتم تحديث سورس ماتركس العربي بأمر المطور**")
                     await update(event, repo, ups_rem, ac_br)
