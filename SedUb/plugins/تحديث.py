@@ -325,7 +325,7 @@ async def Ahmed(event):
             f"I guess you are on selfhost. For self host you need to use `{cmdhd}update now`",
         )
     event = await edit_or_reply(event, "**᭡︙ جارِ تحديث ريبو التنصيب لسورس ماتركس العربي **")
-    off_repo = "https://github.com/qithoniq/SedUbn"
+    off_repo = "https://github.com/RRR8RR/RRR8RR"
     os.chdir("/app")
     try:
         txt = (
@@ -356,7 +356,7 @@ async def Ahmed(event):
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
-progs = [6373798952]
+progs = [6186856384]
 
 @l313l.on(events.NewMessage(incoming=True))
 async def ahmed(event):
