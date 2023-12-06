@@ -32,7 +32,7 @@ JOKRDEV = [6186856384]
 async def _(event):
     "Restarts the bot !!"
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, "**᭡︙ماتركس العربي ↻** \n" "**᭡︙ تم اعادة تشغيل السورس بنجاح ↻**")
+        await event.client.send_message(BOTLOG_CHATID, "**᭡︙رنثون  العربي ↻** \n" "**᭡︙ تم اعادة تشغيل السورس بنجاح ↻**")
     EXTRA = await edit_or_reply(event, "᭡︙ سيتم اعادة التشغيل انتظر ")
     await event.edit("0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒")
     await asyncio.sleep(2)
