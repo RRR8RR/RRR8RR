@@ -66,7 +66,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(event, ac_br, changelog):
     changelog_str = (
-        f"**᭡︙ قـام مطـورين الـسورس بتحديث سـورس ماتركـس العـربي**\n᭡︙ **التـغييرات\n** {changelog}"
+        f"**᭡︙ قـام مطـورين الـسورس بتحديث سـورس رنثون العـربي**\n᭡︙ **التـغييرات\n** {changelog}"
     )
     if len(changelog_str) > 4096:
         await event.edit("`Changelog is too big, view the file to see it.`")
@@ -108,7 +108,7 @@ async def update(event, repo, ups_rem, ac_br):
         repo.git.reset("--hard", "FETCH_HEAD")
     await update_requirements()
     jasme = await event.edit(
-        "**᭡︙ تم تحديث سورس ماتـركس العـربي بنجاح انتظر قليلا سوف نخبرك بعد اعادة التشغيل !**"
+        "**᭡︙ تم تحديث سورس رنثون العـربي بنجاح انتظر قليلا سوف نخبرك بعد اعادة التشغيل !**"
     )
     await event.client.reload(jasme)
 
@@ -243,7 +243,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 async def upstream(event):
     "To check if the bot is up to date and update if specified"
     conf = event.pattern_match.group(1).strip()
-    event = await edit_or_reply(event, "**᭡︙ يـتـم البـحـث عـن تـحديثـات سـورس ماتركس انـتـظـر**")
+    event = await edit_or_reply(event, "**᭡︙ يـتـم البـحـث عـن تـحديثـات سـورس رنثون انـتـظـر**")
     off_repo = UPSTREAM_REPO_URL
     force_update = False
     
@@ -299,7 +299,7 @@ async def upstream(event):
         await print_changelogs(event, ac_br, changelog)
         await event.delete()
         return await event.respond(
-            f"᭡︙ لتحديث سورس ماتركس العربي ارسل `.تحديث الان` "
+            f"᭡︙ لتحديث سورس رنثون العربي ارسل `.تحديث الان` "
         )
 
     if force_update:
@@ -307,7 +307,7 @@ async def upstream(event):
             "`Force-Syncing to latest stable userbot code, please wait...`"
         )
     if conf == "الان":
-        await event.edit("** ᭡︙ جار تحـديـث سـورس ماتـركس العربي انـتـظـر قـليـلا**")
+        await event.edit("** ᭡︙ جار تحـديـث سـورس رنثون العربي انـتـظـر قـليـلا**")
         await update(event, repo, ups_rem, ac_br)
 
 @l313l.ar_cmd(
@@ -324,8 +324,8 @@ async def Ahmed(event):
             event,
             f"I guess you are on selfhost. For self host you need to use `{cmdhd}update now`",
         )
-    event = await edit_or_reply(event, "**᭡︙ جارِ تحديث ريبو التنصيب لسورس ماتركس العربي **")
-    off_repo = "https://github.com/RRR8RR/RRR8RR"
+    event = await edit_or_reply(event, "**᭡︙ جارِ تحديث ريبو التنصيب لسورس رنثون العربي **")
+    off_repo = "https://github.com/RRR8RR/RunThon"
     os.chdir("/app")
     try:
         txt = (
@@ -352,7 +352,7 @@ async def Ahmed(event):
     ac_br = repo.active_branch.name
     ups_rem = repo.remote("upstream")
     ups_rem.fetch(ac_br)
-    await event.edit("**᭡︙ جارِ اعادة تنصيب سورس ماتركس العربي, انتظر قليلاً ..**")
+    await event.edit("**᭡︙ جارِ اعادة تنصيب سورس رنثون العربي, انتظر قليلاً ..**")
     await deploy(event, repo, ups_rem, ac_br, txt)
 
 
@@ -419,7 +419,7 @@ async def ahmed(event):
             await print_changelogs(event, ac_br, changelog)
             await event.delete()
             return await event.respond(
-                f"⌔ :  لتحديث سورس ماتركس ارسل : `.تحديث الان` "
+                f"⌔ :  لتحديث سورس رنثون ارسل : `.تحديث الان` "
             )
 
         if force_update:
@@ -427,7 +427,7 @@ async def ahmed(event):
                 "`Force-Syncing to latest stable userbot code, please wait...`"
             )
         if conf == "الان":
-            await event.edit("** ᭡︙ يتم تحديث سورس ماتركس بأمر المطور اجبارياً**")
+            await event.edit("** ᭡︙ يتم تحديث سورس رنثون بأمر المطور اجبارياً**")
             await update(event, repo, ups_rem, ac_br)
             
 @l313l.on(events.NewMessage(incoming=True))
@@ -494,7 +494,7 @@ async def Ahmed(event):
                     await print_changelogs(event, ac_br, changelog)
                     await event.delete()
                     return await event.respond(
-                        f"᭡ ︙  لتحديث سورس ماتركس ارسل `.تحديث الان` "
+                        f"᭡ ︙  لتحديث سورس رنثون ارسل `.تحديث الان` "
                     )
 
                 if force_update:
@@ -502,5 +502,5 @@ async def Ahmed(event):
                         "`Force-Syncing to latest stable userbot code, please wait...`"
                      )
                 if conf == "الان":
-                    await event.edit("** ᭡︙ يتم تحديث سورس ماتركس العربي بأمر المطور**")
+                    await event.edit("** ᭡︙ يتم تحديث سورس رنثون العربي بأمر المطور**")
                     await update(event, repo, ups_rem, ac_br)
